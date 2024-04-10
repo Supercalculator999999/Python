@@ -1,0 +1,63 @@
+def  create_game(game_record):
+  name = input("Enter the name of the game: ")
+  year = input("Enter the year of development of the game: ")
+  game_record[name] = year
+  print("Game record created successfully")
+
+def read_game(game_record):
+  name = input("Enter the name of the game: ")
+  if name in game_record:
+    print(f"Name: {name}, Year: {game_record[name]}")
+  else:
+    print("game not found")
+
+def update_game(game_record):
+  name = input("Enter the name of the game: ")
+  if name in game_record:
+    year = input("Enter the year of development of the game: ")
+    game_record[name] = year
+    print("game updated successfully")
+  else:
+    print("game not found")
+
+def delete_game(game_record):
+  name = input("Enter the name of the game: ")
+  if name in game_record:
+    del game_record[name]
+    print("game deleted successfully")
+  else:
+    print("game not found")
+
+def display_game(game_record):
+  if not game_record:
+    print("game records are empty")
+  else:
+    print("game records:")
+    for name, year in game_record.items():
+      print(f"Name: {name}, Year: {game_record[name]}")
+
+game_record = {}
+while True:
+  print("\n---GAME RECORDS---")
+  print("1. create game")
+  print("2. read game")
+  print("3. update game")
+  print("4. delete game")
+  print("5. display game")
+  print("6 exit")
+  choice = int(input("Enter your choice: "))
+  if choice == 1:
+    create_game(game_record)
+  elif choice == 2:
+    read_game(game_record)
+  elif choice == 3:
+    update_game(game_record)
+  elif choice == 4:
+    delete_game(game_record)
+  elif choice == 5:
+    display_game(game_record)
+  elif choice == 6:
+    print("Thank you for your time")
+    break
+  else:
+    print("Enter a valid choice")
